@@ -1,0 +1,43 @@
+[
+    {
+     
+      "stadiumname": "Estadio Al Bayt",
+      "imageUrl": "https://as01.epimg.net/futbol/imagenes/2020/11/23/mundial/1606086800_861517_1606086885_noticia_normal_recorte1.jpg",
+      "description": "El Estadio Al-Bayt está situado en la ciudad de Al-Khor y acogerá partidos de las semifinales de la Copa Mundial de 2022. El recinto presenta un diseño muy llamativo que se asemeja a las tiendas de los beduinos, un pueblo nómada que habita en todo el mundo árabe desde hace siglos.El estadio tiene capacidad para 60 000 personas y formará parte de un complejo más amplio que incluirá otros servicios, como un centro comercial, un hospital, etc. Está situado a 60 kilómetros de Doha y no será el de más fácil acceso, por lo que los aficionados al deporte rey tendrán que ir hasta allí en taxi o autobús.",
+      "capacity": 60.000,
+      "location": "Al-Khor en Catar",
+      "latitude":25.651302, 
+      "longitude":51.488777
+   
+    },
+    {
+        "stadiumname": "Estadio Internacional Khalifa",
+        "imageUrl": "https://a.espncdn.com/photo/2021/1107/r934253_1296x729_16-9.jpg",
+        "description": "Entre todos los estadios que se están construyendo para la Copa Mundial de la FIFA, este es el único estadio que ya existía en la ciudad y el más emblemático de Catar desde su inauguración en 1976, lo que en esta zona es como hablar de la más remota antigüedad. Tras una importantísima renovación, el estadio volvió a abrir sus puertas en 2017 y acogerá los partidos hasta los cuartos de final, con capacidad para 40 000 personas. Con tecnologías de climatización avanzadas que mantienen la temperatura ideal tanto para los jugadores como para los aficionados, la modernidad del estadio se refleja en una estructura externa con un emblemático arco doble muy característico.El Estadio Internacional Khalifa está situado en el corazón de la Aspire Zone de Doha, un área de desarrollo tecnológico e innovación que tiene todo lo necesario para convertirse en el núcleo principal de la afición del deporte rey durante la Copa Mundial de 2022.",
+        "capacity": 40.000,
+        "location": "Al Waab St, Doha, Catar",
+        "latitude":25.263632, 
+        "longitude":51.448704
+
+    },
+    {
+     
+
+    },
+    {
+      
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    }
+]
