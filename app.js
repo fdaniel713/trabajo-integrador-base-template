@@ -8,6 +8,7 @@ const indexRouter = require('./src/routes/stadiums');
 const indexRouterHome = require('./src/routes/stadiums');
 const {connectToDB}= require('./src/db/mongoose')
 const  getStadiumById = require('./src/routes/stadiums')
+const  newStadium = require('./src/routes/stadiums')
 
 
 connectToDB();
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouterHome);
 app.use('/stadium', indexRouter);
 app.use('/Stadium/:id',  getStadiumById);
+app.use('/stadium/new', newStadium)
 
 
 

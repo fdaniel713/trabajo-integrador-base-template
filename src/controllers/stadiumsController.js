@@ -1,7 +1,7 @@
-const joi = require('joi');
-const config = require('config');
+const Joi = require('joi');
 const stadiumSchema = require ("../schemas/schemas")
-const Stadium = require('../models/stadiumModel')
+const Stadium = require('../models/stadiumModel');
+
 
 async function getIndexHome(req, res){
     //COMPLETE WITH YOUR CODE
@@ -39,29 +39,29 @@ async function  getStadiumById(req, res) {
 
 
 
-async function createStadiums(req, res){
-    //COMPLETE WITH YOUR CODE
+async function newStadiums(req, res){
+ 
     const data= req.body;
-
+    console.log(data);
     try {
-        joi.assert(data, stadiumSchema)
-        const stad = new stadiumModel(data);
-        await user.save(stad);
+        Joi.assert(data, stadiumSchema)
+        const stad = new Stadium(data);
+        await stad.save();
         res.status(200).json({
             code:"OK",
             message:"successfull request"
         })
        
     }catch (err) {
-        res.status(400).json({
-            conde: 'bad request',
-            message: err.details[0].message,
-            secerity:'LOW'
-        })
+        // const error = new Error ()
+        // Object.assign(error,{
+        //     code: "bar request"
+        
+        res.status(400).json(console.log(err))
        
     }
 };
 
 
 
-module.exports = {createStadiums, getIndex, getStadiumById,getIndexHome};
+module.exports = {newStadiums, getIndex, getStadiumById,getIndexHome};
