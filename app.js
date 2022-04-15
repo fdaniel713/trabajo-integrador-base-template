@@ -4,9 +4,10 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config();
 const app = express();
-const indexRouter = require('./src/routes/index');
+const indexRouter = require('./src/routes/stadiums');
+const indexRouterHome = require('./src/routes/stadiums');
 const {connectToDB}= require('./src/db/mongoose')
-const stadiumsRoutes = require('./src/routes/stadiums')
+const  getStadiumById = require('./src/routes/stadiums')
 
 
 connectToDB();
@@ -17,8 +18,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //complete with your resource
-app.use('/', indexRouter);
-//app.use('/stadiums', stadiumsRoutes);
+app.use('/', indexRouterHome);
+app.use('/stadium', indexRouter);
+app.use('/Stadium/:id',  getStadiumById);
 
 
 

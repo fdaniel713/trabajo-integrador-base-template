@@ -1,11 +1,13 @@
 const express = require('express');
-const { getstadiums } = require('../controllers/stadiumsController');
 const router = express.Router();
-const {stadiumsController} = require('../controllers/stadiumsController')
+const {getIndex, getIndexHome}= require('../controllers/stadiumsController')
+const { getStadiumById} = require('../controllers/stadiumsController')
 //COMPLETE the router
-router.get('/', function(req,res,next){
-    res.send('stadiums')
-})
+
+router.get('/', getIndexHome)
+router.get('/stadium', getIndex)
+//router.post('/', createStadiums)
+router.get('/stadium/:id', getStadiumById)
 
 module.exports= router;
 
