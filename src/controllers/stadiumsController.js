@@ -1,23 +1,33 @@
 const joi = require('joi');
 const config = require('config');
-const {stadiumModel} = requiere('../models/stadiumModel')
-//const { stadiumsSchema } = require("../schemas/schemas");
+const {manifest} = require('../models/stadiumModel')
+const { stadiumsSchema } = require("../schemas/schemas");
+const stadium = require('../models/stadiumModel');
 
 
-
- 
-
-async function getstadiums(req, res){
+async function createStadiums(req, res){
     //COMPLETE WITH YOUR CODE
+    const data= req.body;
 
     try {
-       const stadium = await stadiumModel.find({})//get all stadiums
-        res.status(200).json(stadium);
+        joi.assert(data,stadiumSchema)
+        const stad = new stadium(data);
+        await stad.save();
+        res.json({
+                    message: 'everything ok',
+        })
+       
     }catch (err) {
-        return res.status(500).json({message: err.message})
+        const error = new error();
+        Object.assign(error,{
+            conde: 'bad request',
+            message: err.details[0].message,
+            secerity:'LOW'
+        })
+       
     }
 };
 
 
 
-module.exports = {getstadiums};
+module.exports = {createStadiums};

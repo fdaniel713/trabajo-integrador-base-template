@@ -1,7 +1,12 @@
 const Joi = require('joi')
 
-const stadiumsSchema =
+const stadiumSchema = Joi.object({
+   
+   
+    imageUrl:Joi.string().required(),
+    
+})
 
 module.exports = {
-    stadiumsSchema
+    stadiumSchema
 }
