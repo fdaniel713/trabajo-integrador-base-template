@@ -10,6 +10,8 @@ const {connectToDB}= require('./src/db/mongoose')
 const  getStadiumById = require('./src/routes/stadiums')
 const  newStadium = require('./src/routes/stadiums');
 const getDeleteStadiumById = require('./src/routes/stadiums')
+const getStadiumEdit = require('./src/routes/stadiums')
+
 
 
 connectToDB();
@@ -24,8 +26,8 @@ app.use('/', indexRouterHome);
 app.use('/stadium', indexRouter);
 app.use('/Stadium/:id',  getStadiumById);
 app.use('/stadium/new', newStadium);
-app.use('/stadium/delete/:id',getDeleteStadiumById)
-
+app.use('/stadium/delete/:id',getDeleteStadiumById);
+app.use('/stadium/edit/:id', getStadiumEdit);
 
 
 module.exports = app;

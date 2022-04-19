@@ -39,7 +39,6 @@ async function  getStadiumById(req, res) {
 }
 
 
-
 async function newStadiums(req, res){
  
     const data= req.body;
@@ -75,6 +74,22 @@ async function  getDeleteStadiumById (req, res) {
     }
 }
 
+async function getStadiumEdit (req, res) {
+    const data= req.body;
+    try{
+        Joi.assert(data, stadiumSchema)
+        const index = await Stadium.findByIdAndUpdate(req.params.id,data)
+        res.status(200).json({index,
+        message:" successful edited"})
+    }catch (err){
+        //console.log(err)    
+        res.status(500).json({
+            err,
+            message:'error to edit'
+         })
+
+    }
+}
 
 
-module.exports = {newStadiums, getIndex, getStadiumById,getIndexHome,getDeleteStadiumById};
+module.exports = {newStadiums,getStadiumEdit, getIndex, getStadiumById,getIndexHome,getDeleteStadiumById};
