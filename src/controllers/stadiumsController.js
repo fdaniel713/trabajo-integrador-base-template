@@ -1,6 +1,7 @@
 const Joi = require('joi');
 const stadiumSchema = require ("../schemas/schemas")
 const Stadium = require('../models/stadiumModel');
+const { message } = require('../schemas/schemas');
 
 
 async function getIndexHome(req, res){
@@ -42,7 +43,7 @@ async function  getStadiumById(req, res) {
 async function newStadiums(req, res){
  
     const data= req.body;
-    console.log(data);
+    //console.log(data);
     try {
         Joi.assert(data, stadiumSchema)
         const stad = new Stadium(data);
@@ -53,15 +54,27 @@ async function newStadiums(req, res){
         })
        
     }catch (err) {
-        // const error = new Error ()
-        // Object.assign(error,{
-        //     code: "bar request"
-        
-        res.status(400).json(console.log(err))
-       
-    }
+         
+        res.status(400).json(err)
+         
+  
+}
 };
 
+async function  getDeleteStadiumById (req, res) {
+    try{
+        const index = await Stadium.findById(req.params.id)
+        res.status(200).json(index.deleteOne())
+        }catch (err){
+        //console.log(err)    
+        res.status(500).json({
+           err,
+           message:'error to delete'
+        })
+
+    }
+}
 
 
-module.exports = {newStadiums, getIndex, getStadiumById,getIndexHome};
+
+module.exports = {newStadiums, getIndex, getStadiumById,getIndexHome,getDeleteStadiumById};
