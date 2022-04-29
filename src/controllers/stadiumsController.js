@@ -33,7 +33,9 @@ async function  getStadiumById(req, res) {
         res.status(200).json(index)
     }catch (err){
         //console.log(err)    
-        res.status(500).json(err)
+        res.status(500).json({err,
+        message:"fail to request"
+        })
 
     }
 }
@@ -54,7 +56,9 @@ async function newStadiums(req, res){
        
     }catch (err) {
          
-        res.status(400).json(err)
+        res.status(400).json({err,
+        message:"Error, review your schema"
+        })
          
   
 }
@@ -64,12 +68,15 @@ async function  getDeleteStadiumById (req, res) {
     try{
         const index = await Stadium.findById(req.params.id)
         res.status(200).json(index.deleteOne())
+       
         }catch (err){
         //console.log(err)    
-        res.status(500).json({
-           err,
-           message:'error to delete'
+        res.status(500).json(
+        {err,
+         message:'error to delete'
         })
+         
+    
 
     }
 }
